@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Typography, Row, Col, Statistic, Spin } from "antd";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import { Cryptocurrencies, News } from "../components";
+import Loader from "./Loader";
 
 const { Title } = Typography;
 
@@ -11,7 +12,7 @@ const Homepage = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalValues = data?.data?.stats;
 
-  if (isFetching) return <Spin></Spin>;
+  if (isFetching) return <Loader/>;
 
   return (
     <div>
